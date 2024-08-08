@@ -46,6 +46,20 @@ class _SettingsViewState extends State<SettingsView> {
             }
             log('changing value to: $value');
           },
+          decoration: CustomDropdownDecoration(
+            closedFillColor:
+                provider.isDark() ? const Color(0xff141A2E) : Colors.white,
+            closedSuffixIcon: Icon(
+              Icons.keyboard_arrow_down_rounded,
+              color: provider.isDark() ? theme.primaryColorDark : Colors.black,
+            ),
+            expandedFillColor:
+                provider.isDark() ? const Color(0xff141A2E) : Colors.white,
+            expandedSuffixIcon: Icon(
+              Icons.keyboard_arrow_up_rounded,
+              color: provider.isDark() ? theme.primaryColorDark : Colors.black,
+            ),
+          ),
         ),
         const SizedBox(
           height: 50,
