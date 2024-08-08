@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/core/settings_provider.dart';
 import 'package:islami_app/modul/hadeth/hadith.dart';
 import 'package:islami_app/modul/quran/quran.dart';
 import 'package:islami_app/modul/radio/radio.dart';
 import 'package:islami_app/modul/sebha/sebha.dart';
+import 'package:provider/provider.dart';
 
 import '../modul/settings/settings.dart';
 
@@ -28,10 +30,12 @@ class _LayoutViewState extends State<LayoutView> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     var lang = AppLocalizations.of(context)!;
     return DecoratedBox(
-      decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/images/bg3.png"))),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(provider.getBackgroundImage()))),
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,

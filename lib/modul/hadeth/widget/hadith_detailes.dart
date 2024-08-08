@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/core/settings_provider.dart';
 import 'package:islami_app/modul/hadeth/hadith.dart';
+import 'package:provider/provider.dart';
 
 class HadithDetailes extends StatefulWidget {
   const HadithDetailes({super.key});
@@ -14,16 +16,16 @@ class HadithDetailes extends StatefulWidget {
 class _HadithDetailesState extends State<HadithDetailes> {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
+
     var lang = AppLocalizations.of(context)!;
 
-    var data = ModalRoute
-        .of(context)
-        ?.settings
-        .arguments as HadithData;
+    var data = ModalRoute.of(context)?.settings.arguments as HadithData;
     var theme = Theme.of(context);
     return DecoratedBox(
-        decoration: const BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/images/bg3.png"))),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(provider.getBackgroundImage()))),
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
@@ -50,13 +52,19 @@ class _HadithDetailesState extends State<HadithDetailes> {
             // color: Color(0xffF8F8F8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
-              color: const Color(0xffF8F8F8).withOpacity(0.8),
+              color: provider.isDark()
+                  ? const Color(0xff141a2b).withOpacity(0.8)
+                  : const Color(0xffF8F8F8).withOpacity(0.8),
             ),
             child: Column(
               children: [
                 Text(
                   data.title,
-                  style: theme.textTheme.bodyMedium,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: provider.isDark()
+                        ? theme.primaryColorDark
+                        : Colors.black,
+                  ),
                 ),
                 const Divider(
                   thickness: 1,
@@ -69,6 +77,9 @@ class _HadithDetailesState extends State<HadithDetailes> {
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.rtl,
                         style: theme.textTheme.bodySmall?.copyWith(
+                          color: provider.isDark()
+                              ? theme.primaryColorDark
+                              : Colors.black,
                           height: 2,
                         ),
                       ),
