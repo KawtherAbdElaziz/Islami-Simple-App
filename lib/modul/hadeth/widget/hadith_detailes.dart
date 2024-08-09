@@ -59,13 +59,7 @@ class _HadithDetailesState extends State<HadithDetailes> {
             child: Column(
               children: [
                 Text(
-                  data.title,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: provider.isDark()
-                        ? theme.primaryColorDark
-                        : Colors.black,
-                  ),
-                ),
+                  data.title, style: theme.textTheme.bodyMedium),
                 const Divider(
                   thickness: 1,
                 ),
@@ -77,9 +71,6 @@ class _HadithDetailesState extends State<HadithDetailes> {
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.rtl,
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: provider.isDark()
-                              ? theme.primaryColorDark
-                              : Colors.black,
                           height: 2,
                         ),
                       ),

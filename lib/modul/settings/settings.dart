@@ -14,14 +14,17 @@ class SettingsView extends StatefulWidget {
 }
 
 class _SettingsViewState extends State<SettingsView> {
-  final List<String> _langauges = ["English", "عربي"];
-  final List<String> _theme = ["Light", "Dark"];
+  // final List<String> _langauges = ["English", "عربي"];
+  // final List<String> _theme = ["Light", "Dark"];
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingsProvider>(context);
     var lang = AppLocalizations.of(context)!;
-
     var theme = Theme.of(context);
+
+    final List<String> langauges = ["English", "عربي"];
+    final List<String> theme0 = [lang.light, lang.dark];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,9 +37,9 @@ class _SettingsViewState extends State<SettingsView> {
         ),
         CustomDropdown<String>(
           hintText: 'Select Langauge',
-          items: _langauges,
+          items: langauges,
           initialItem:
-              provider.currentLangauge == "en" ? _langauges[0] : _langauges[1],
+              provider.currentLangauge == "en" ? langauges[0] : langauges[1],
           onChanged: (value) {
             if (value == "English") {
               provider.changeCurrentLangauge("en");
@@ -73,15 +76,15 @@ class _SettingsViewState extends State<SettingsView> {
         ),
         CustomDropdown<String>(
           hintText: 'Select Theme',
-          items: _theme,
+          items: theme0,
           initialItem: provider.currentThemeMode == ThemeMode.light
-              ? _theme[0]
-              : _theme[1],
+              ? theme0[0]
+              : theme0[1],
           onChanged: (value) {
-            if (value == "Light") {
+            if (value == "Light" || value == "فاتح") {
               provider.changeCurrentTheme(ThemeMode.light);
             }
-            if (value == "Dark") {
+            if (value == "Dark" || value == "داكن") {
               provider.changeCurrentTheme(ThemeMode.dark);
             }
             log('changing value to: $value');

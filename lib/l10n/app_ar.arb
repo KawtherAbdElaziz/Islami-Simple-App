@@ -8,5 +8,9 @@
     "radio" : "راديو",
     "settings" : "الإعدادات",
     "langauge" : "اللغه",
-    "mode" : "النمط"
+    "mode" : "النمط",
+    "light":"فاتح",
+    "dark": "داكن",
+    "sephaview" : "السبحة",
+    "radioview" : "الراديو"
 }

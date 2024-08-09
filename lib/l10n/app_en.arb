@@ -8,7 +8,11 @@
     "radio" : "Radio",
     "settings" : "Settings",
     "langauge" : "Langauge",
-    "mode" : "Mode"
+    "mode" : "Mode",
+    "light":"Light",
+    "dark": "Dark",
+    "sephaview" : "Sepha View",
+    "radioview" : "Radio View"
 
     
 }

@@ -63,37 +63,36 @@ class ApplicationThemeManager {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         elevation: 0,
-        backgroundColor: Color(0xff141A2E),
+        backgroundColor: const Color(0xff141A2E),
         type: BottomNavigationBarType.fixed,
         selectedItemColor: primaryDarkColor,
-        selectedIconTheme:
-            const IconThemeData(color: Color(0xff242424), size: 35),
+        selectedIconTheme: IconThemeData(color: primaryDarkColor, size: 35),
         unselectedIconTheme:
             const IconThemeData(color: Color(0xffffffff), size: 28),
-        unselectedItemColor: const Color(0xff242424),
+        unselectedItemColor: const Color(0xffffffff),
         showUnselectedLabels: false,
         selectedLabelStyle: const TextStyle(fontSize: 12)),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       titleLarge: TextStyle(
           fontFamily: "ElMessiri",
           fontSize: 30,
           fontWeight: FontWeight.w700,
-          color: Color(0xffffffff)),
+          color: primaryDarkColor),
       bodyLarge: TextStyle(
           fontWeight: FontWeight.w500,
-          color: Color(0xffffffff),
+          color: primaryDarkColor,
           fontSize: 25,
           fontFamily: "ElMessiri"),
       bodyMedium: TextStyle(
           fontFamily: "ElMessiri",
           fontSize: 25,
           fontWeight: FontWeight.w500,
-          color: Color(0xffffffff)),
+          color: primaryDarkColor),
       bodySmall: TextStyle(
           fontFamily: "ElMessiri",
           fontSize: 20,
           // fontWeight: FontWeight.w500,
-          color: Color(0xffffffff)),
+          color: primaryDarkColor),
     ),
     dividerTheme: DividerThemeData(color: primaryDarkColor, thickness: 3),
   );

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:islami_app/core/settings_provider.dart';
 import 'package:islami_app/modul/quran/quran.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranDetailesView extends StatefulWidget {
   const QuranDetailesView({super.key});
@@ -17,6 +18,7 @@ class _QuranDetailesViewState extends State<QuranDetailesView> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingsProvider>(context);
+    var lang = AppLocalizations.of(context)!;
 
     var data = ModalRoute.of(context)?.settings.arguments as SuraData;
     var theme = Theme.of(context);
@@ -28,8 +30,8 @@ class _QuranDetailesViewState extends State<QuranDetailesView> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: const Text(
-              "إسلامي",
+            title: Text(
+              lang.islami,
             ),
           ),
           body: Container(
@@ -61,20 +63,17 @@ class _QuranDetailesViewState extends State<QuranDetailesView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("سورة ${data.suraTitle}",
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: provider.isDark()
-                              ? theme.primaryColorDark
-                              : Colors.black,
-                        )),
+                        style: theme.textTheme.bodyMedium),
                     const SizedBox(
                       width: 20,
                     ),
                     Icon(
                       Icons.play_circle,
-                      color: provider.isDark()
-                          ? theme.primaryColorDark
-                          : Colors.black,
                       size: 27.2,
+                      color: provider.isDark()
+                          ? const Color(0xffFACC1D)
+                          : Colors.black,
+
                     )
                   ],
                 ),
@@ -91,9 +90,6 @@ class _QuranDetailesViewState extends State<QuranDetailesView> {
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.rtl,
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: provider.isDark()
-                              ? theme.primaryColorDark
-                              : Colors.black,
                           height: 2,
                         ),
                         // softWrap: true,
