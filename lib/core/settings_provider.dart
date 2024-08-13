@@ -28,7 +28,13 @@ class SettingsProvider extends ChangeNotifier {
         : "assets/images/Group 8.png";
   }
 
-  String getSephaImage() {
+  String getSephaP1Image() {
+    return currentThemeMode == ThemeMode.dark
+        ? "assets/images/head_sebha_dark.png"
+        : "assets/images/head_sebha_logo.png";
+  }
+
+  String getSephaP2Image() {
     return currentThemeMode == ThemeMode.dark
         ? "assets/images/body_sebha_dark.png"
         : "assets/images/body_sebha_logo.png";
